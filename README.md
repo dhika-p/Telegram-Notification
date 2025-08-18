@@ -10,21 +10,6 @@ Project Spring Boot sederhana dengan Java 17, Spring Web, dan Lombok.
 - **Lombok**
 - **Maven**
 
-## Struktur Project
-
-```
-src/
-├── main/
-│   ├── java/
-│   │   └── com/example/notificationtelegram/
-│   │       ├── NotificationTelegramApplication.java
-│   │       ├── controller/
-│   │       │   └── HelloController.java
-│   │       └── model/
-│   │           └── User.java
-│   └── resources/
-│       └── application.properties
-```
 
 ## Cara Menjalankan
 
