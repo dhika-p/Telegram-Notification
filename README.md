@@ -1,8 +1,8 @@
 # Notification Telegram - Spring Boot Project
 
-Project Spring Boot sederhana dengan Java 17, Spring Web, dan Lombok.
+A simple Spring Boot project with Java 17, Spring Web, and Lombok.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
 - **Java 17**
 - **Spring Boot 3.2.0**
@@ -10,24 +10,27 @@ Project Spring Boot sederhana dengan Java 17, Spring Web, dan Lombok.
 - **Lombok**
 - **Maven**
 
-
-## Cara Menjalankan
+## How to Run
 
 ### Prerequisites
-- Java 17 atau lebih tinggi
-- Maven 3.6 atau lebih tinggi
+
+- Java 17 or higher
+- Maven 3.6 or higher
 
 ### Build Project
+
 ```bash
 mvn clean compile
 ```
 
 ### Run Application
+
 ```bash
 mvn spring-boot:run
 ```
 
 ### Build JAR
+
 ```bash
 mvn clean package
 ```
@@ -35,60 +38,67 @@ mvn clean package
 ## Endpoints
 
 ### Telegram Endpoints
-- `POST /api/telegram/send` - Mengirim pesan teks sederhana
-- `POST /api/telegram/notification` - Mengirim notifikasi dengan judul dan konten
-- `POST /api/telegram/send-html` - Mengirim pesan dengan format HTML
-- `GET /api/telegram/test` - Test koneksi Telegram
 
-## Fitur Lombok
+- `POST /api/telegram/send` - Send a simple text message
+- `POST /api/telegram/notification` - Send notification with title and content
+- `POST /api/telegram/send-html` - Send message with HTML format
+- `GET /api/telegram/test` - Test Telegram connection
 
-Project ini menggunakan Lombok untuk mengurangi boilerplate code:
-- `@Data` - Generate getter, setter, toString, equals, dan hashCode
-- `@NoArgsConstructor` - Generate constructor tanpa parameter
-- `@AllArgsConstructor` - Generate constructor dengan semua parameter
+## Lombok Features
 
-## Port Default
+This project uses Lombok to reduce boilerplate code:
 
-Application berjalan di port **8080**
+- `@Data` - Generates getter, setter, toString, equals, and hashCode
+- `@NoArgsConstructor` - Generates constructor without parameters
+- `@AllArgsConstructor` - Generates constructor with all parameters
 
-## Konfigurasi Telegram
+## Default Port
 
-Sebelum menggunakan fitur Telegram, Anda perlu mengkonfigurasi bot token dan chat ID di file `src/main/resources/application.properties`:
+Application runs on port **8080**
+
+## Telegram Configuration
+
+Before using Telegram features, you need to configure the bot token and chat ID in the `src/main/resources/application.properties` file:
 
 ```properties
 telegram.bot.token=YOUR_BOT_TOKEN_HERE
 telegram.bot.chat-id=YOUR_CHAT_ID_HERE
 ```
 
-### Cara Mendapatkan Bot Token:
-1. Chat dengan [@BotFather](https://t.me/botfather) di Telegram
-2. Kirim perintah `/newbot`
-3. Ikuti instruksi untuk membuat bot baru
-4. Salin token yang diberikan
+### How to Get Bot Token:
 
-### Cara Mendapatkan Chat ID:
-1. Chat dengan bot yang sudah dibuat
-2. Kirim pesan apapun ke bot
-3. Akses URL: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
-4. Cari field `chat.id` dalam response JSON
+1. Chat with [@BotFather](https://t.me/botfather) on Telegram
+2. Send the `/newbot` command
+3. Follow the instructions to create a new bot
+4. Copy the token provided
 
-## Contoh Penggunaan API
+### How to Get Chat ID:
 
-### Mengirim Pesan Sederhana
+1. Chat with the bot you created
+2. Send any message to the bot
+3. Access URL: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
+4. Find the `chat.id` field in the JSON response
+
+## API Usage Examples
+
+### Send Simple Message
+
 ```bash
 curl -X POST http://localhost:8080/api/telegram/send \
   -H "Content-Type: application/json" \
-  -d '{"message": "Hello dari Spring Boot!"}'
+  -d '{"message": "Hello from Spring Boot!"}'
 ```
 
-### Mengirim Notifikasi
+### Send Notification
+
 ```bash
 curl -X POST http://localhost:8080/api/telegram/notification \
   -H "Content-Type: application/json" \
-  -d '{"title": "Notifikasi Penting", "content": "Ada update sistem baru"}'
+  -d '{"title": "Important Notification", "content": "There is a new system update"}'
 ```
 
-### Test Koneksi
+### Test Connection
+
 ```bash
 curl http://localhost:8080/api/telegram/test
 ```
